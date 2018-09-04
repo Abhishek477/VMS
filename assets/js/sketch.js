@@ -1,6 +1,6 @@
 console.log(firebase);
 var db = firebase.database();
-
+var LoginEmail,LoginPassword;
 
 function dataStore(){
   var FName     =  document.getElementById('FName').value;
@@ -36,4 +36,38 @@ function dataStore(){
   .catch(function(error) {
       console.error("Error writing document: ", error);
   });
+  window.alert("You are registered. Click ok to Login.");
+}
+
+function retrieveData(){
+  LoginEmail     =  document.getElementById('LoginEmail').value;
+  LoginPassword  =  document.getElementById('LoginPassword').value;
+
+  var ref = db.ref("Registration");
+  ref.on('value', getData, errData);
+}
+
+function getData(data){
+  var userCredentials = data.val();
+  var keys = Object.keys(userCredentials);
+  console.log(keys);
+  var tmp = 0;
+  for(var i = 0; i < keys.length; i++){
+    if(keys[i] == window.btoa(LoginEmail)){
+      window.alert("Found!");
+      tmp = 1;
+    }
+  }
+  if(tmp == 0)
+    invalidCombo();
+}
+
+function errData(data){
+  console.log("Error!");
+  console.log(err);
+}
+
+function invalidCombo(){
+  window.alert("Invalid credentials");
+  window.location.reload();
 }

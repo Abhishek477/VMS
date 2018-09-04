@@ -17,6 +17,12 @@
   <link href="../assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+
+  <!-- Firebase stuff -->
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script src="../firebaseConfig.js"></script>
+
+
 </head>
 
 <body class="login-page sidebar-collapse">
@@ -107,7 +113,7 @@
                       <i class="material-icons">mail</i>
                     </span>
                   </div>
-                  <input type="email" class="form-control" placeholder="Email...">
+                  <input type="email" class="form-control" placeholder="Email..." id="LoginEmail">
                 </div>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -115,11 +121,11 @@
                       <i class="material-icons">lock_outline</i>
                     </span>
                   </div>
-                  <input type="password" class="form-control" placeholder="Password...">
+                  <input type="password" class="form-control" placeholder="Password..." id="LoginPassword">
                 </div>
               </div>
               <div class="footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+                <a onclick="retrieveData()" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
               </div>
             </form>
           </div>
@@ -162,6 +168,12 @@
       </div>
     </footer>
   </div>
+  
+  
+  <!-- Firebase Integration -->
+  <script src="../assets/js/sketch.js"></script>
+
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
