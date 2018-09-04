@@ -17,6 +17,8 @@
   <link href="../assets/css/material-kit.css?v=2.0.4" rel="stylesheet" />
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/demo/demo.css" rel="stylesheet" />
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script src="../firebaseConfig.js"></script>
 </head>
 
 <body class="login-page sidebar-collapse">
@@ -92,7 +94,7 @@
                             <i class="material-icons">face</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="First Name...">
+                        <input type="text" class="form-control" placeholder="First Name..." id="FName">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -102,7 +104,7 @@
                             <i class="material-icons">face</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Middle Name...">
+                        <input type="text" class="form-control" placeholder="Middle Name..." id="MName">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -112,7 +114,7 @@
                               <i class="material-icons">face</i>
                             </span>
                           </div>
-                        <input type="text" class="form-control" placeholder="Last Name...">
+                        <input type="text" class="form-control" placeholder="Last Name..." id="LName">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -122,7 +124,7 @@
                               <i class="material-icons">cake</i>
                             </span>
                           </div>
-                        <input type="text" class="form-control" placeholder="DOB (DD/MM/YYYY)">
+                        <input type="text" class="form-control" placeholder="DOB (DD/MM/YYYY)" id="DOB">
                       </div>
                     </div>
                   </div>
@@ -137,7 +139,7 @@
                             <i class="material-icons">image_aspect_ratio</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Driving Licence No">
+                        <input type="text" class="form-control" placeholder="Driving Licence No" id="DLNo">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -147,7 +149,7 @@
                             <i class="material-icons">airport_shuttle</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Vehicle Registration No">
+                        <input type="text" class="form-control" placeholder="Vehicle Registration No" id="VRNo">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -157,7 +159,7 @@
                             <i class="material-icons">build</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Vehicle Manufacturer">
+                        <input type="text" class="form-control" placeholder="Vehicle Manufacturer" id="VManu">
                       </div>
                     </div>
                     <div class="col-lg-3 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -167,7 +169,7 @@
                             <i class="material-icons">trending_flat</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Vehicle Model Name">
+                        <input type="text" class="form-control" placeholder="Vehicle Model Name" id="VModel">
                       </div>
                     </div>
                   </div>
@@ -183,7 +185,7 @@
                             <i class="material-icons">mail</i>
                           </span>
                         </div>
-                      <input type="email" class="form-control" placeholder="Email...">
+                      <input type="email" class="form-control" placeholder="Email..." id="email">
                     </div>
                   </div>
                   <div class="col-lg-4 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -193,7 +195,7 @@
                           <i class="material-icons">lock_outline</i>
                         </span>
                       </div>
-                      <input type="password" class="form-control" placeholder="Password...">
+                      <input type="password" class="form-control" placeholder="Password..." id="password">
                     </div>
                   </div>
                   <div class="col-lg-4 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -203,7 +205,7 @@
                               <i class="material-icons">lock_outline</i>
                             </span>
                           </div>
-                        <input type="password" class="form-control" placeholder="Confirm Password...">
+                        <input type="password" class="form-control" placeholder="Confirm Password..." id="Cpassword">
                       </div>
                     </div>
                   </div>
@@ -211,7 +213,7 @@
               </div>
 
               <div class="footer text-center">
-                <a href="#pablo" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
+                <a onclick="dataStore()" class="btn btn-primary btn-link btn-wd btn-lg">Get Started</a>
               </div>
             </form>
           </div>
@@ -254,6 +256,21 @@
       </div>
     </footer>
   </div>
+
+  <!-- Firebase Integration -->
+  <script>
+    var config = {
+      apiKey: configFB.apiKey,
+      authDomain: configFB.authDomain,
+      databaseURL: configFB.databaseURL,
+      projectId: configFB.projectId,
+      storageBucket: configFB.storageBucket,
+      messagingSenderId: configFB.messagingSenderId
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script src="../assets/js/sketch.js"></script>
+
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js" type="text/javascript"></script>
   <script src="../assets/js/core/popper.min.js" type="text/javascript"></script>
