@@ -14,7 +14,8 @@ function dataStore(){
   var email     =  document.getElementById('email').value;
   var password  =  document.getElementById('password').value;
   var hash      =  window.btoa(password);
-  
+  //window.atob()
+
   var user = {
     FName     : FName,
     MName     : MName,
