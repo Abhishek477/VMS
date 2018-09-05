@@ -19,12 +19,13 @@ function dataStore(){
 
   if(email == "" || password == "" || Cpassword == "" || DLNo == ""){
     window.alert("Empty fields!");
+    window.location.reload();
     return;
   }
 
   if(password != Cpassword){
-    window.alert("Passwords Mismatch!");
-    window.location.reload()
+    window.alert("Passwords Mismatch! Click OK to re-register.");
+    window.location.reload();
     return;
   }
 
@@ -49,6 +50,7 @@ function dataStore(){
       console.error("Error writing document: ", error);
   });
   window.alert("You are registered. Click OK to Login.");
+  window.location.href='login-page.html';
 }
 
 function retrieveData(){
