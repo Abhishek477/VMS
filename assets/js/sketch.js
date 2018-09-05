@@ -3,18 +3,30 @@ var db = firebase.database();
 var LoginEmail,LoginPassword;
 
 function dataStore(){
-  var FName     =  document.getElementById('FName').value;
-  var MName     =  document.getElementById('MName').value;
-  var LName     =  document.getElementById('LName').value;
-  var dob       =  document.getElementById('DOB').value;
-  var DLNo      =  document.getElementById('DLNo').value;
-  var VRNo      =  document.getElementById('VRNo').value;
-  var VManu     =  document.getElementById('VManu').value;
-  var VModel    =  document.getElementById('VModel').value;
-  var email     =  document.getElementById('email').value;
-  var password  =  document.getElementById('password').value;
+  var FName     =  document.getElementById('FName').value.trim();
+  var MName     =  document.getElementById('MName').value.trim();
+  var LName     =  document.getElementById('LName').value.trim();
+  var dob       =  document.getElementById('DOB').value.trim();
+  var DLNo      =  document.getElementById('DLNo').value.trim();
+  var VRNo      =  document.getElementById('VRNo').value.trim();
+  var VManu     =  document.getElementById('VManu').value.trim();
+  var VModel    =  document.getElementById('VModel').value.trim();
+  var email     =  document.getElementById('email').value.trim();
+  var password  =  document.getElementById('password').value.trim();
+  var Cpassword  =  document.getElementById('Cpassword').value.trim();
   var hash      =  window.btoa(password);
   //window.atob()
+
+  if(email == "" || password == "" || Cpassword == "" || DLNo == ""){
+    window.alert("Empty fields!");
+    return;
+  }
+
+  if(password != Cpassword){
+    window.alert("Passwords Mismatch!");
+    window.location.reload()
+    return;
+  }
 
   var user = {
     FName     : FName,
@@ -36,7 +48,7 @@ function dataStore(){
   .catch(function(error) {
       console.error("Error writing document: ", error);
   });
-  window.alert("You are registered. Click ok to Login.");
+  window.alert("You are registered. Click OK to Login.");
 }
 
 function retrieveData(){
@@ -54,7 +66,11 @@ function getData(data){
   var tmp = 0;
   for(var i = 0; i < keys.length; i++){
     if(keys[i] == window.btoa(LoginEmail)){
-      window.alert("Found!");
+      if(window.btoa(LoginPassword) != userCredentials[keys[i]].Password)
+        invalidCombo();
+      else{
+        console.log("Login Successful!");
+      }
       tmp = 1;
     }
   }
