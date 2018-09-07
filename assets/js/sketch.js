@@ -72,6 +72,8 @@ function getData(data){
         invalidCombo();
       else{
         console.log("Login Successful!");
+        localStorage.setItem( 'objectToPass', window.btoa(LoginEmail));
+        window.location.href='./postLogin/examples/dashboard.html';
       }
       tmp = 1;
     }
