@@ -13,22 +13,9 @@ function fetch(){
 
     /*
     ref.update({
-        fine : {
-            y2018 : {
-                JAN : 1000,
-                FEB : 220,
-                MAR : 300,
-                APR : 40,
-                MAY : 5000,
-                JUN : 750,
-                JUL : 1000,
-                AUG : 100,
-                SEP : 0,
-                OCT : 10,
-                NOV : 110,
-                DEC : 10
-            }
-        }
+        Category : "Helmet",
+        Place : "Station",
+        Amount : 100
     });
     */
     

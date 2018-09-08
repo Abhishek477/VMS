@@ -210,27 +210,46 @@ demo = {
     };
 
 
+
+    function fineSum(){
+      var mnt = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+      
+      var keys,sumFine = 0;
+      var fineArr = [0,0,0,0,0,0,0,0,0,0,0,0];
+
+      for(var i = 0; i < 12; i++){
+        var refDB = db.ref("Registration/" + userId1 + "/Fine/y2018/" + mnt[i]);
+        refDB.on("value", function(snapshot) {
+          var chartData = snapshot.val();
+          keys = Object.keys(chartData);
+        });
+        for(var j = 0; j < keys.length; j++){
+          refDB = db.ref("Registration/" + userId1 + "/Fine/y2018/" + mnt[i] + "/" + keys[j]);
+          
+          refDB.on("value", function(snapshot) {
+            var chartData = snapshot.val();
+            sumFine += chartData.Amount;
+          });
+        }
+        fineArr[i] = sumFine;
+        sumFine = 0;
+      }
+      return fineArr;
+    }
+
+
+
+
+
+
     // window.alert(db.ref("Registration/" + window.btoa("qw")).update({ggwp : "csgo"}));
     var userId1 = localStorage['objectToPass'];
-    var refDB = db.ref("Registration/" + userId1 + "/fine/y2018");
+    var refDB = db.ref("Registration/" + userId1 + "/Fine/y2018");
     var chartData, dataArr, monthsArr = ["JAN-18", "FEB-18", "MAR-18", "APR-18", "MAY-18", "JUN-18", "JUL-18", "AUG-18", "SEP-18", "OCT-18", "NOV-18", "DEC-18"];
 
     refDB.on("value", function(snapshot) {
       chartData = snapshot.val();
-      dataArr = [
-        chartData.JAN,
-        chartData.FEB,
-        chartData.MAR,
-        chartData.APR,
-        chartData.MAY,
-        chartData.JUN,
-        chartData.JUL,
-        chartData.AUG,
-        chartData.SEP,
-        chartData.OCT,
-        chartData.NOV,
-        chartData.DEC
-      ];
+      dataArr = fineSum();
       console.log(dataArr);
 
       var ctx = document.getElementById('bigDashboardChart').getContext("2d");
