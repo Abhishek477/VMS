@@ -255,8 +255,6 @@ demo = {
       var ldr = document.getElementById('ldr').style = "visibility: hidden";
 
 
-
-
       var ctx = document.getElementById('bigDashboardChart').getContext("2d");
 
       var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
