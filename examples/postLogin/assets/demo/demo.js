@@ -285,49 +285,60 @@ demo = {
           }]
         },
         options: {
-          maintainAspectRatio: false,
-          legend: {
-            display: false
-          },
-          tooltips: {
-            bodySpacing: 4,
-            mode: "nearest",
-            intersect: 0,
-            position: "nearest",
-            xPadding: 10,
-            yPadding: 10,
-            caretPadding: 10
-          },
-          responsive: 1,
-          scales: {
-            yAxes: [{
-              gridLines: 0,
-              gridLines: {
-                zeroLineColor: "transparent",
-                drawBorder: false
-              }
-            }],
-            xAxes: [{
-              display: 0,
-              gridLines: 0,
-              ticks: {
-                display: false
-              },
-              gridLines: {
-                zeroLineColor: "transparent",
-                drawTicks: false,
-                display: false,
-                drawBorder: false
-              }
-            }]
-          },
           layout: {
             padding: {
-              left: 0,
-              right: 0,
-              top: 15,
-              bottom: 15
+              left: 20,
+              right: 20,
+              top: 0,
+              bottom: 0
             }
+          },
+          maintainAspectRatio: false,
+          tooltips: {
+            backgroundColor: '#fff',
+            titleFontColor: '#333',
+            bodyFontColor: '#666',
+            bodySpacing: 4,
+            xPadding: 12,
+            mode: "nearest",
+            intersect: 0,
+            position: "nearest"
+          },
+          legend: {
+            position: "bottom",
+            fillStyle: "#FFF",
+            display: false
+          },
+          scales: {
+            yAxes: [{
+              ticks: {
+                fontColor: "rgba(255,255,255,0.4)",
+                fontStyle: "bold",
+                beginAtZero: true,
+                maxTicksLimit: 5,
+                padding: 10
+              },
+              gridLines: {
+                drawTicks: true,
+                drawBorder: false,
+                display: true,
+                color: "rgba(255,255,255,0.1)",
+                zeroLineColor: "transparent"
+              }
+  
+            }],
+            xAxes: [{
+              gridLines: {
+                zeroLineColor: "transparent",
+                display: false,
+  
+              },
+              ticks: {
+                padding: 10,
+                fontColor: "rgba(255,255,255,0.4)",
+                fontStyle: "bold"
+              }
+            }]
           }
         }
       };
