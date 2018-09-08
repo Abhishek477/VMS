@@ -26,6 +26,7 @@ function gotOne(data){
     document.getElementById("userName").innerHTML = objectRec.FName + " " + objectRec.MName + " " + objectRec.LName;
     document.getElementById("userName").style.visibility = "visible";
     autoType(".type-js",200);
+    displayTable();
 }
 function errData(err){
     console.log(err);
@@ -33,6 +34,26 @@ function errData(err){
 
 
 
+function displayTable(){
+    var mnt = "SEP";
+    var keys,tableCnt = "";
+    var userId1 = localStorage['objectToPass'];
+
+    var refDB = db.ref("Registration/" + userId1 + "/Fine/y2018/" + mnt);
+    refDB.on("value", function(snapshot) {
+    var chartData = snapshot.val();
+    keys = Object.keys(chartData);
+    });
+    for(var j = 0; j < keys.length; j++){
+    refDB = db.ref("Registration/" + userId1 + "/Fine/y2018/" + mnt + "/" + keys[j]);
+    
+    refDB.on("value", function(snapshot) {
+        var chartData = snapshot.val();
+        tableCnt += "<tr><td>" + keys[j] + "</td><td>" + chartData.date + "</td><td>" + chartData.Category + "</td><td>" + chartData.Place + "</td><td class='text-right'>&#8377 " + chartData.Amount + "</td></tr>";
+    });
+    }
+    document.getElementById("tableBody").innerHTML = tableCnt;
+  }
 
 
 
