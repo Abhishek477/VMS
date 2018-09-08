@@ -27,7 +27,8 @@ function gotOne(data){
     document.getElementById("userName").innerHTML = objectRec.FName + " " + objectRec.MName + " " + objectRec.LName;
     document.getElementById("userName").style.visibility = "visible";
     autoType(".type-js",200);
-    displayTable();
+    if(document.getElementById("headLabel").innerText === "DASHBOARD")
+        displayTable();
 }
 function errData(err){
     console.log(err);
