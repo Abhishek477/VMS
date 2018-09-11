@@ -45,5 +45,8 @@
     "gulp-sourcemaps": "^2.6.4",
     "gulp-open": "^3.0.1"
   },
-  "homepage": "https://demos.creative-tim.com/material-kit/index.html"
+  "homepage": "https://demos.creative-tim.com/material-kit/index.html",
+  "dependencies": {
+    "@sendgrid/mail": "^6.3.1"
+  }
 }
