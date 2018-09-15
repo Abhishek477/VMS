@@ -50,7 +50,7 @@ function dataStore(){
       console.error("Error writing document: ", error);
   });
   window.alert("You are registered. Click OK to Login.");
-  window.location.href='login-page.html';
+  window.location.href='./login-page.html';
 }
 
 function retrieveData(){
