@@ -134,7 +134,7 @@ function displayTable(){
 
 function logoutStuff(){
     localStorage.removeItem( 'objectToPass' );
-    window.location.href = '/examples/landing-page.html';
+    window.location.href = '/VMS/examples/landing-page.html';
 }
 
 
