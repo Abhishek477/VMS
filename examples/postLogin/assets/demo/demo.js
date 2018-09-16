@@ -252,9 +252,9 @@ demo = {
       dataArr = fineSum();
       console.log(dataArr);
 
-      var ldr = document.getElementById('ldr').style = "visibility: hidden";
-
-
+      var preloader = $('.spinner-wrapper');
+      preloader.fadeOut(500);
+      
       var ctx = document.getElementById('bigDashboardChart').getContext("2d");
 
       var gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);

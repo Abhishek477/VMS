@@ -36,9 +36,27 @@ function gotOne(data){
         displayTable();
     if(document.getElementById("headLabel").innerText === "HISTORY")
         displayHistoryTable();
+    if(document.getElementById("headLabel").innerText === "PROFILE")
+        displayUserForm();
 }
 function errData(err){
     console.log(err);
+}
+
+
+function displayUserForm(){
+    document.getElementById("FName").value = objectRec.FName;
+    document.getElementById("LName").value = objectRec.LName;
+    document.getElementById("formDLNo").value = objectRec.DLNo;
+    document.getElementById("DOB").value = objectRec.DOB;
+    document.getElementById("Email").value = objectRec.Email;
+    document.getElementById("Phone").value = objectRec.Phone;
+    document.getElementById("VManu").value = objectRec.VManu;
+    document.getElementById("VModel").value = objectRec.VModel;
+    document.getElementById("VRNo").value = objectRec.VRNo;
+
+     var preloader = $('.spinner-wrapper');
+    preloader.fadeOut(500);
 }
 
 
@@ -107,7 +125,9 @@ function displayTable(){
         });
     }
     document.getElementById("historyTable").innerHTML = tableCnt;
-    var ldr = document.getElementById('ldr').style = "visibility: hidden";
+    
+    var preloader = $('.spinner-wrapper');
+    preloader.fadeOut(500);
   }
 
 
