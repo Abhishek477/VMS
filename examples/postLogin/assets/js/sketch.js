@@ -9,7 +9,7 @@ fetch();
 function fetch(){
     if (localStorage.getItem("objectToPass") === null) {
         window.alert("Login to continue....");
-        window.location.href = '/examples/login-page.html';
+        window.location.href = '/VMS/examples/login-page.html';
     }
 
     var userId = localStorage['objectToPass'];
