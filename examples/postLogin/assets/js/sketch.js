@@ -79,7 +79,8 @@ function displayTable(){
         tableCnt += "<tr><td>" + keys[j] + "</td><td>" + chartData.date + "</td><td>" + chartData.Category + "</td><td>" + chartData.Place + "</td><td class='text-right'>&#8377 " + chartData.Amount + "</td></tr>";
     });
     }
-    document.getElementById("tableBody").innerHTML = tableCnt;
+    var tBody = document.getElementById("tableBody")
+    if(tBody)   tBody.innerHTML = tableCnt;
   }
 
 
@@ -129,6 +130,19 @@ function displayTable(){
     var preloader = $('.spinner-wrapper');
     preloader.fadeOut(500);
   }
+
+
+function gotoDashboard(){
+    var userId1 = localStorage['objectToPass'];
+    refDB = db.ref("Registration/" + userId1 + "/accType");
+    refDB.on("value", function(snapshot) {
+        var userData = snapshot.val();
+        if(userData == "driver")
+            window.location.href = './dashboardD.html';
+        else
+            window.location.href = './dashboardO.html';
+    });
+}
 
 
 
