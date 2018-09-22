@@ -105,7 +105,7 @@ function displayTable(){
             if(keys[i] == "y2018")
                 lmt = 8;
             else
-                lmt = 0;
+                lmt = 0;                        //Remove this else when "y2017" has all months defined in Firebase
             for(j = lmt; j >= 0; j--){
                 var tt = 0;
                 while(tt < 12 && keys2[tt] != months[j]){tt++;}

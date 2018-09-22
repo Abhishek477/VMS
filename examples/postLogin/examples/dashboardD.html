@@ -6,9 +6,9 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="theme-color" content="#18ce0f" />
+  <meta name="theme-color" content="#2ca8ff" />
   <title>
-    Vehicle Management Inc. 
+    Dashboard | V M S
   </title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   <!--     Fonts and icons     -->
@@ -27,28 +27,27 @@
 <body class="">
 
   <!-- CSS PreLoader -->
-  <div class="spinner-wrapper" id="ldr" style="background-color: #18ce0f">
-      <div class="sk-cube-grid">
-        <div class="sk-cube sk-cube1"></div>
-        <div class="sk-cube sk-cube2"></div>
-        <div class="sk-cube sk-cube3"></div>
-        <div class="sk-cube sk-cube4"></div>
-        <div class="sk-cube sk-cube5"></div>
-        <div class="sk-cube sk-cube6"></div>
-        <div class="sk-cube sk-cube7"></div>
-        <div class="sk-cube sk-cube8"></div>
-        <div class="sk-cube sk-cube9"></div>
-      </div>
+  <div class="spinner-wrapper" id="ldr" style="background-color: #2ca8ff">
+    <div class="sk-cube-grid">
+      <div class="sk-cube sk-cube1"></div>
+      <div class="sk-cube sk-cube2"></div>
+      <div class="sk-cube sk-cube3"></div>
+      <div class="sk-cube sk-cube4"></div>
+      <div class="sk-cube sk-cube5"></div>
+      <div class="sk-cube sk-cube6"></div>
+      <div class="sk-cube sk-cube7"></div>
+      <div class="sk-cube sk-cube8"></div>
+      <div class="sk-cube sk-cube9"></div>
     </div>
-
+  </div>
 
 
   <div class="wrapper ">
-    <div class="sidebar" data-color="green">
+    <div class="sidebar" data-color="blue">
       <!--
         Tip 1: You can change the color of the sidebar using: data-color="blue | green | orange | red | yellow"
     -->
-    <div class="logo">
+      <div class="logo">
         <a href="./user.html" class="simple-text logo-mini">
           <i class="now-ui-icons users_single-02"></i>
         </a>
@@ -58,13 +57,13 @@
       </div>
       <div class="sidebar-wrapper">
         <ul class="nav">
-          <li>
-            <a href="./dashboard.html">
+          <li class="active ">
+            <a onclick="location.reload()">
               <i class="now-ui-icons design_app"></i>
               <p>Dashboard</p>
             </a>
           </li>
-          <li class="active ">
+          <li>
             <a href="./tables.html">
               <i class="now-ui-icons design_bullet-list-67"></i>
               <p>History</p>
@@ -103,7 +102,7 @@
                 <span class="navbar-toggler-bar bar3"></span>
               </button>
             </div>
-            <a class="navbar-brand" style="-webkit-user-select: none;" id="headLabel">History</a>
+            <a class="navbar-brand" style="-webkit-user-select: none;" id="headLabel">Dashboard</a>
           </div>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-bar navbar-kebab"></span>
@@ -155,54 +154,39 @@
           </div>
         </div>
       </nav>
-      <!-- End Navbar -->
-      <div class="panel-header panel-header-sm">
+      <!-- End Navbar  -->
+      <div class="panel-header panel-header-lg">
+        <canvas id="bigDashboardChart"></canvas>
       </div>
       <div class="content">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Fine History</h4>
-              </div>
-              <div class="card-body">
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead class=" text-primary">
-                      <th>
-                        Fine ID
-                      </th>
-                      <th>
-                        Date
-                      </th>
-                      <th>
-                        Category
-                      </th>
-                      <th>
-                        Place
-                      </th>
-                      <th class="text-right">
-                        Amount
-                      </th>
-                    </thead>
-                    <tbody id="historyTable">
-                      <tr>
-                        <td>
-                          Jon Porter
-                        </td>
-                        <td>
-                          Portugal
-                        </td>
-                        <td>
-                          Gloucester
-                        </td>
-                        <td class="text-right">
-                          $98,615
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header">
+              <h5 class="card-category">Current Month : SEPTEMBER</h5>
+              <h4 class="card-title">Logs :</h4>
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class=" text-primary">
+                    <th>
+                      Fine ID
+                    </th>
+                    <th>
+                      Date
+                    </th>
+                    <th>
+                      Category
+                    </th>
+                    <th>
+                      Place
+                    </th>
+                    <th class="text-right">
+                      Amount
+                    </th>
+                  </thead>
+                  <tbody id="tableBody"></tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -247,6 +231,7 @@
   <!-- Firebase stuff -->
   <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
   <script src="../firebaseConfig.js"></script>
+  <script src="../assets/js/sketch.js"></script>
   <!--   Core JS Files   -->
   <script src="../assets/js/core/jquery.min.js"></script>
   <script src="../assets/js/core/popper.min.js"></script>
@@ -262,7 +247,12 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
-  <script src="../assets/js/sketch.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Javascript method's body can be found in assetsPL/js/demos.js
+      demo.initDashboardPageCharts();
+    });
+  </script>
 </body>
 
 </html>
