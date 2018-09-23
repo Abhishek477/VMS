@@ -22,6 +22,7 @@
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link href="../assets/scss/typingText.scss" rel="stylesheet" />
   <link href="../assets/css/preloader.css" rel="stylesheet" />
+  <link href="../assets/css/datepicker.min.css" rel="stylesheet" type="text/css">
 </head>
  <body class="">
    <!-- CSS PreLoader -->
@@ -229,6 +230,20 @@
                     </div>
                   </div>
                 </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-textx">
+                            <i class="material-icons">calendar_today</i>
+                          </span>
+                        </div>
+                        <input type='text' class='form-control datepicker-here' data-timepicker="true" placeholder="Pick Date & Time" data-language='en' />
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="footer text-center">
                 <a onclick="anyFunction()" class="btn btn-danger" style="color: white">SUBMIT</a>
@@ -292,6 +307,9 @@
   <script src="../assets/js/now-ui-dashboard.min.js?v=1.1.0" type="text/javascript"></script>
   <!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <script src="../assets/demo/demo.js"></script>
+  <script src="../assets/js/plugins/datepicker.min.js"></script>
+  <!-- Include English language -->
+  <script src="../assets/js/plugins/datepicker.en.js"></script>
   <script>
     $(document).ready(function() {
       // Javascript method's body can be found in assetsPL/js/demos.js
