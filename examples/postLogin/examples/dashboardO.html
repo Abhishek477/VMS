@@ -158,7 +158,7 @@
           <div class="card card-login">
             <form class="form" method="" action="">
               <div class="card-header card-header-primary text-center">
-                <h4 class="card-title">FINE TICKET</h4>
+                <h4 class="card-title" id="tktNo">FINE TICKET</h4>
               </div>
               <p class="description text-center">Fill in the details</p>
               <div class="card-body">
@@ -205,7 +205,7 @@
                             <i class="material-icons">attach_money</i>
                           </span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Fine Amount" id="fineVal">
+                        <input type="text" class="form-control" placeholder="Fine Amount (INR)" id="fineVal">
                       </div>
                     </div>
                     <div class="col-lg-4 col-sm-6 col-md-6 ml-auto mr-auto">
@@ -239,14 +239,14 @@
                             <i class="material-icons">calendar_today</i>
                           </span>
                         </div>
-                        <input type='text' class='form-control datepicker-here' data-timepicker="true" placeholder="Pick Date & Time" data-language='en' />
+                        <input type='text' class='form-control datepicker-here' data-timepicker="true" placeholder="Pick Date & Time" data-language='en' id="fineDate" />
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div class="footer text-center">
-                <a onclick="anyFunction()" class="btn btn-danger" style="color: white">SUBMIT</a>
+                <a onclick="acceptFine()" class="btn btn-danger" style="color: white">SUBMIT</a>
               </div>
             </form>
           </div>
