@@ -8,7 +8,7 @@ const sendMail = nodemailer.createTestAccount((err, account) => {
         secure: false,
         auth: {
             user: 'apikey',
-            pass: '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'
+            pass: API_KEY
         }
     });
 
